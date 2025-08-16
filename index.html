@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.google.com/specimen/Josefin+Sans" />
+  </head>
+<style>
+* {
+  margin: 0%;
+  padding: 0%;
+  border-style: none;
+  border-color: none;
+}
+.logo {
+  height: 20px;
+  width: 80px;
+}
+
+.img {
+  background-image: url("./images/hero-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 400px;
+}
+.card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 393px;
+  width: 700px;
+  background-color: hsl(0, 0%, 100%);
+}
+.h1 {
+  padding-top: 30px;
+  text-transform: uppercase;
+  color: hsl(0, 80%, 86%);
+  font-size: 30px;
+  letter-spacing: 5px;
+  font-family: "Josefin Sans", sans-serif;
+}
+p {
+  color: hsl(0, 80%, 86%);
+  font-size: 10px;
+  font-family: "Josefin Sans", serif;
+  font-weight: bolder;
+}
+.content {
+  width: 400px;
+  display: grid;
+  place-items: center;
+}
+.contentcard {
+  width: 300px;
+  height: 350px;
+  align-items: center;
+  display: grid;
+}
+body {
+  background-color: black;
+  height: 100vh;
+  display: grid;
+  font-family: "Josefin Sans", sans-serif;
+  place-items: center;
+}
+input {
+  border-radius: 30px;
+  background-image: url("./images/icon-arrow.svg");
+  background-repeat: no-repeat;
+  color: hsl(0, 80%, 86%);
+  border: 1px solid hsl(0, 80%, 86%);
+}
+input:hover {
+  border: 2px solid hsl(0, 95%, 62%);
+}
+.inputfield button {
+  background-image: url("./images/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: hsl(0, 80%, 86%);
+  height: 100%;
+  width: 60px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 30px;
+}
+.inputfield {
+  position: relative;
+}
+.inputfield input {
+  width: 90%;
+  padding: 10px 0 10px 10px;
+}
+button:hover {
+  background-color: hsl(0, 80%, 86%);
+}
+
+@media screen and (max-width: 756px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+  }
+  .contentcard {
+    margin-top: 20px;
+  }
+  input,
+  button,
+  p {
+    margin-top: 20px;
+  }
+.inputfield  button{
+     background-image: url("./images/icon-arrow.svg");
+     height: 50%;
+  }
+  .img1 {
+    background-image: url("./images/hero-mobile.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    margin-top: 20px;
+  }
+  .img {
+    display: none;
+  }
+}
+
+</style>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="content">
+          <div class="contentcard">
+            <img class="logo" src="./images/logo.svg" alt="" />
+            <div class="img1"></div>
+            <p class="h1">
+              <span style="font-weight: 100">We're</span><br />
+              <span style="color: hsl(0, 6%, 24%); font-weight: 300"
+                >coming <br />
+                soon</span
+              >
+            </p>
+            <p>
+              Hello fellow shoppers! We're currently building our new fashion
+              store. Add your email below to stay up-to-date with announcements
+              and our launch deals.
+            </p>
+            <div class="inputfield">
+              <input type="email" placeholder="Email Address" />
+              <button onclick="show()"></button>
+              <br />
+              <p id="errormsg"></p>
+            </div>
+          </div>
+        </div>
+        <div class="img"></div>
+      </div>
+    </div>
+    <script>
+      function show() {
+        let input = document.getElementsByTagName("input")[0].value.trim();
+        let btn = document.getElementsByTagName("button");
+        let msg = document.getElementById("errormsg");
+        let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (pattern.test(input)) {
+          msg.textContent = "Login sucessful ✅";
+        } else {
+          msg.textContent = "Please provide a valid email ";
+        }
+      }
+    </script>
+  </body>
+</html>
